@@ -11,6 +11,6 @@ export function queryAPI(endpoint) {
   weakMap.set(endpoint, count);
 
   if (count >= MAX_NO_OF_CALLS) {
-    throw new Error('Endpoint load is high');
+    throw new Error("Endpoint load is high");
   }
 }
