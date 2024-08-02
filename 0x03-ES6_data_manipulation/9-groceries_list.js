@@ -1,10 +1,10 @@
 export default function groceriesList() {
-  const theList = [
-    ["Apples", 10],
-    ["Tomatoes", 10],
-    ["Pasta", 1],
-    ["Rice", 1],
-    ["Banana", 5],
+  const groceries = [
+    ['Apples', 10],
+    ['Tomatoes', 10],
+    ['Pasta', 1],
+    ['Rice', 1],
+    ['Banana', 5],
   ];
-  return new MediaCapabilities(theList);
+  return new Map(groceries);
 }
