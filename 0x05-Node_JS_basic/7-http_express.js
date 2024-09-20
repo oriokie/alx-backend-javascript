@@ -5,7 +5,7 @@ async function countStudents(path) {
   try {
     const data = await readFile(path, 'utf8');
     const lines = data.split('\n').filter((line) => line.trim() !== '');
-    const students = lines.slice(1);
+    const students = lines.slice(1); // Remove header
 
     let output = `Number of students: ${students.length}\n`;
 
@@ -33,12 +33,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', async (req, res) => {
+  let responseText = 'This is the list of our students\n';
   try {
     const data = await countStudents(process.argv[2]);
-    res.send(`This is the list of our students\n${data}`);
+    responseText += data;
   } catch (error) {
-    res.status(404).send(error.message);
+    responseText += error.message;
   }
+  res.send(responseText);
 });
 
 app.listen(1245);
